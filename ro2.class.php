@@ -23,20 +23,54 @@ if ( !defined('EQDKP_INC') ){
 
 if(!class_exists('ro2')) {
 	class ro2 extends game_generic {
-		public static $shortcuts = array();
+		public $version			= '0.1';
 		protected $this_game	= 'ro2';
 		protected $types		= array('classes', 'races', 'filters');
-		public $icons			= array('classes', 'classes_big', 'events', 'races');
 		protected $classes		= array();
 		protected $races		= array();
 		protected $filters		= array();
 		public $langs			= array('english');
 
+		protected $class_dependencies = array(
+			array(
+				'name'		=> 'race',
+				'type'		=> 'races',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'parent'	=> false
+			),
+			array(
+				'name'		=> 'class',
+				'type'		=> 'classes',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'primary'	=> true,
+				'colorize'	=> true,
+				'roster'	=> true,
+				'recruitment' => true,
+				'parent'	=> array(
+					'race' => array(
+						0 	=> 'all',		// Unknown
+						1 	=> 'all',		// Norman
+						2 	=> 'all',		// Ellr
+						3 	=> 'all',		// Dimago
+					),
+				),
+			),
+		);
+
+		protected $class_colors = array(
+			1	=> '#1FCA1F',
+			2	=> '#D41188',
+			3	=> '#19ECFF',
+			4	=> '#C70909',
+			5	=> '#FFE719',
+		);
+
 		protected $glang		= array();
 		protected $lang_file	= array();
 		protected $path			= '';
 		public $lang			= false;
-		public $version			= '0.1';
 
 		/**
 		* Initialises filters
@@ -63,6 +97,49 @@ if(!class_exists('ro2')) {
 			}
 		}
 		
+		public function profilefields(){
+			$xml_fields = array(
+				'advancedclass'	=> array(
+					'type'			=> 'dropdown',
+					'category'		=> 'character',
+					'lang'			=> 'uc_advanced_class',
+					'options'		=> array('-' => 'uc_ac_0','Acolyte - Monk' => 'uc_ac_1', 'Acolyte - Priest' => 'uc_ac_2', 'Archer - Beastmasters' => 'uc_ac_3', 'Archer - Ranger' => 'uc_ac_4', 'Magician - Sorcerer' => 'uc_ac_5', 'Magician - Wizard' => 'uc_ac_6', 'Swordman - Knight' => 'uc_ac_7', 'Swordman - Warrior' => 'uc_ac_8', 'Thief - Assassin' => 'uc_ac_9', 'Thief - Rogue' => 'uc_ac_10'),
+					'undeletable'	=> true,
+				),
+
+				'gender'	=> array(
+					'type'			=> 'dropdown',
+					'category'		=> 'character',
+					'lang'			=> 'uc_gender',
+					'options'		=> array('Male' => 'uc_male', 'Female' => 'uc_female'),
+					'undeletable'	=> true,
+				),
+				'guild'	=> array(
+					'type'			=> 'text',
+					'category'		=> 'character',
+					'lang'			=> 'uc_guild',
+					'size'			=> 40,
+					'undeletable'	=> true,
+				),
+	
+				'prof1_value'	=> array(
+					'type'			=> 'int',
+					'category'		=> 'character',
+					'lang'			=> 'uc_prof1_value',
+					'size'			=> 4,
+					'undeletable'	=> true,
+				),
+				'prof1_name'	=> array(
+					'type'			=> 'dropdown',
+					'category'		=> 'character',
+					'lang'			=> 'uc_prof1_name',
+					'options'		=> array('-' => 'uc_job_0', 'Alchemy' => 'uc_job_1', 'Artisan' => 'uc_job_2', 'Blacksmith' => 'uc_job_3', 'Chef' => 'uc_job_4'),
+					'undeletable'	=> true,
+				),
+			);
+			return $xml_fields;
+		}
+		
 		/**
 		* Returns Information to change the game
 		*
@@ -71,14 +148,6 @@ if(!class_exists('ro2')) {
 		*/
 
 		public function get_OnChangeInfos($install=false){
-			$info['class_color'] = array(
-				1	=> '#1FCA1F',
-				2	=> '#D41188',
-				3	=> '#19ECFF',
-				4	=> '#C70909',
-				5	=> '#FFE719',
-
-				);
 
 			$info['aq'] = array();
 

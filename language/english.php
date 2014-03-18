@@ -21,28 +21,25 @@ if ( !defined('EQDKP_INC') ){
 }
 $english_array = array(
 	'classes' => array(
-		0 => 'Unknown',
-		1 => 'Acolyte',
-		2 => 'Archer',
-		3 => 'Magician',
-		4 => 'Swordman',
-		5 => 'Thief',
-
+		0	=> 'Unknown',
+		1	=> 'Acolyte',
+		2	=> 'Archer',
+		3	=> 'Magician',
+		4	=> 'Swordman',
+		5	=> 'Thief',
 	),
-
 	'races' => array(
-		'Unknown',
-		'Norman',
-		'Ellr',
-		'Dimago ',
-
+		0	=> 'Unknown',
+		1	=> 'Norman',
+		2	=> 'Ellr',
+		3	=> 'Dimago ',
 	),
 
 	'lang' => array(
-		'ro2' => 'Ragnarok Online 2',
-		'tank' => 'Tank',
-		'damage_dealer' => 'Damage Dealer',
-		'healer' => 'Healer',
+		'ro2'							=> 'Ragnarok Online 2',
+		'tank'							=> 'Tank',
+		'damage_dealer'					=> 'Damage Dealer',
+		'healer'						=> 'Healer',
 		
 		// Profile information
 		'uc_gender'						=> 'Gender',
@@ -55,26 +52,24 @@ $english_array = array(
 		
 		
 		// Advanced Class Information
-		
-		'uc_ac_0' => '-',
-		'uc_ac_1' => 'Acolyte - Monk',
-		'uc_ac_2' => 'Acolyte - Priest',
-		'uc_ac_3' => 'Archer - Beastmasters',
-		'uc_ac_4' => 'Archer - Ranger',
-		'uc_ac_5' => 'Magician - Sorcerer',
-		'uc_ac_6' => 'Magician - Wizard',
-		'uc_ac_7' => 'Swordman - Knight',
-		'uc_ac_8' => 'Swordman - Warrior',
-		'uc_ac_9' => 'Thief - Assassin',
-		'uc_ac_10' => 'Thief - Rogue',
+		'uc_ac_0'						=> '-',
+		'uc_ac_1'						=> 'Acolyte - Monk',
+		'uc_ac_2'						=> 'Acolyte - Priest',
+		'uc_ac_3'						=> 'Archer - Beastmasters',
+		'uc_ac_4'						=> 'Archer - Ranger',
+		'uc_ac_5'						=> 'Magician - Sorcerer',
+		'uc_ac_6'						=> 'Magician - Wizard',
+		'uc_ac_7'						=> 'Swordman - Knight',
+		'uc_ac_8'						=> 'Swordman - Warrior',
+		'uc_ac_9'						=> 'Thief - Assassin',
+		'uc_ac_10'						=> 'Thief - Rogue',
 		
 		// Jobs
-		
-		'uc_job_0'	=> '-',
-		'uc_job_1'	=> 'Alchemy',
-		'uc_job_2'	=> 'Artisan',
-		'uc_job_3'	=> 'Blacksmith',
-		'uc_job_4'	=> 'Chef',
+		'uc_job_0'						=> '-',
+		'uc_job_1'						=> 'Alchemy',
+		'uc_job_2'						=> 'Artisan',
+		'uc_job_3'						=> 'Blacksmith',
+		'uc_job_4'						=> 'Chef',
 		
 	),
 );
