@@ -4,18 +4,16 @@
  * License:		Creative Commons - Attribution-Noncommercial-Share Alike 3.0 Unported
  * Link:		http://creativecommons.org/licenses/by-nc-sa/3.0/
  * -----------------------------------------------------------------------
- * Began:		2010
  * Date:		$Date$
  * -----------------------------------------------------------------------
  * @author		$Author$
- * @copyright	2006-2011 EQdkp-Plus Developer Team
+ * @copyright	2006-2014 EQdkp-Plus Developer Team
  * @link		http://eqdkp-plus.com
  * @package		eqdkp-plus
  * @version		$Rev$
- * 
+ *
  * $Id$
  */
-
 
 if ( !defined('EQDKP_INC') ){
 	header('HTTP/1.0 404 Not Found');exit;
@@ -23,13 +21,14 @@ if ( !defined('EQDKP_INC') ){
 
 if(!class_exists('ro2')) {
 	class ro2 extends game_generic {
-		public $version			= '0.1';
-		protected $this_game	= 'ro2';
-		protected $types		= array('classes', 'races', 'filters');
-		protected $classes		= array();
-		protected $races		= array();
-		protected $filters		= array();
-		public $langs			= array('english');
+		protected static $apiLevel	= 20;
+		public $version				= '0.1';
+		protected $this_game		= 'ro2';
+		protected $types			= array('classes', 'races', 'filters');
+		protected $classes			= array();
+		protected $races			= array();
+		protected $filters			= array();
+		public $langs				= array('english');
 
 		protected $class_dependencies = array(
 			array(
@@ -72,11 +71,6 @@ if(!class_exists('ro2')) {
 		protected $path			= '';
 		public $lang			= false;
 
-		/**
-		* Initialises filters
-		*
-		* @param array $langs
-		*/
 		protected function load_filters($langs){
 			if(!$this->classes) {
 				$this->load_type('classes', $langs);
@@ -106,7 +100,6 @@ if(!class_exists('ro2')) {
 					'options'		=> array('-' => 'uc_ac_0','Acolyte - Monk' => 'uc_ac_1', 'Acolyte - Priest' => 'uc_ac_2', 'Archer - Beastmasters' => 'uc_ac_3', 'Archer - Ranger' => 'uc_ac_4', 'Magician - Sorcerer' => 'uc_ac_5', 'Magician - Wizard' => 'uc_ac_6', 'Swordman - Knight' => 'uc_ac_7', 'Swordman - Warrior' => 'uc_ac_8', 'Thief - Assassin' => 'uc_ac_9', 'Thief - Rogue' => 'uc_ac_10'),
 					'undeletable'	=> true,
 				),
-
 				'gender'	=> array(
 					'type'			=> 'dropdown',
 					'category'		=> 'character',
@@ -121,7 +114,6 @@ if(!class_exists('ro2')) {
 					'size'			=> 40,
 					'undeletable'	=> true,
 				),
-	
 				'prof1_value'	=> array(
 					'type'			=> 'int',
 					'category'		=> 'character',
@@ -139,24 +131,8 @@ if(!class_exists('ro2')) {
 			);
 			return $xml_fields;
 		}
-		
-		/**
-		* Returns Information to change the game
-		*
-		* @param bool $install
-		* @return array
-		*/
 
-		public function install($install=false){
-
-			
-
-			//Do this SQL Query NOT if the Eqdkp is installed -> only @ the first install
-			#if($install){
-			#}
-			return $info;
-		}
+		public function install($install=false){}
 	}
 }
-if(version_compare(PHP_VERSION, '5.3.0', '<')) registry::add_const('short_ro2', ro2::$shortcuts);
 ?>
