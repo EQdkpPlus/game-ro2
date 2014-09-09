@@ -49,8 +49,9 @@ $english_array = array(
 		'uc_advanced_class'				=> 'Advanced Class',
 		'uc_prof1_name'					=> 'Job',
 		'uc_prof1_value'				=> 'Job-Level',
-		
-		
+		'uc_race'						=> 'Race',
+		'uc_class'						=> 'Class',
+
 		// Advanced Class Information
 		'uc_ac_0'						=> '-',
 		'uc_ac_1'						=> 'Acolyte - Monk',

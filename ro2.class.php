@@ -99,6 +99,7 @@ if(!class_exists('ro2')) {
 					'lang'			=> 'uc_advanced_class',
 					'options'		=> array('-' => 'uc_ac_0','Acolyte - Monk' => 'uc_ac_1', 'Acolyte - Priest' => 'uc_ac_2', 'Archer - Beastmasters' => 'uc_ac_3', 'Archer - Ranger' => 'uc_ac_4', 'Magician - Sorcerer' => 'uc_ac_5', 'Magician - Wizard' => 'uc_ac_6', 'Swordman - Knight' => 'uc_ac_7', 'Swordman - Warrior' => 'uc_ac_8', 'Thief - Assassin' => 'uc_ac_9', 'Thief - Rogue' => 'uc_ac_10'),
 					'undeletable'	=> true,
+					'tolang'		=> true
 				),
 				'gender'	=> array(
 					'type'			=> 'dropdown',
@@ -106,6 +107,7 @@ if(!class_exists('ro2')) {
 					'lang'			=> 'uc_gender',
 					'options'		=> array('Male' => 'uc_male', 'Female' => 'uc_female'),
 					'undeletable'	=> true,
+					'tolang'		=> true
 				),
 				'guild'	=> array(
 					'type'			=> 'text',
@@ -127,6 +129,7 @@ if(!class_exists('ro2')) {
 					'lang'			=> 'uc_prof1_name',
 					'options'		=> array('-' => 'uc_job_0', 'Alchemy' => 'uc_job_1', 'Artisan' => 'uc_job_2', 'Blacksmith' => 'uc_job_3', 'Chef' => 'uc_job_4'),
 					'undeletable'	=> true,
+					'tolang'		=> true
 				),
 			);
 			return $xml_fields;
